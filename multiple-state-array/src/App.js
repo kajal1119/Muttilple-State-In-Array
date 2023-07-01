@@ -1,32 +1,15 @@
-
-import { useState } from 'react';
+import Header from './Component/Header';
 import './App.css';
+import TaskList from './Component/TaskList';
+import React from 'react';
 
 function App() {
-  const [tasks,setTasks]=useState([
-  {id:1,name:"Kajal",completed:true},
-  {id:2,name:"PM",completed:false},
-  {id:3,name:"Pritam",completed:true}
-])
-const [show,setShow]=useState(true)
-const handleDelete=((id)=>{
-  setTasks(tasks.filter(task=>
-    task.id!==id
-  ))
-})
+ const info="Random"
   return (
-    <div className="App">
-    <h1>Task List</h1>
-    <button className='trigger' onClick={()=>setShow(!show)}>Toggle</button>
-   <ul>
-   {show &&  tasks.map((task)=>(
-    <li key={task.id} className={task.completed ? "completed" : "incomplete"}> <span>{task.id} - {task.name}</span>
-    <button onClick={()=>handleDelete(task.id)} className='delete'>Delete</button>
-    </li>
-   ))}
-  
-   </ul>
-    </div>
+  <React.Fragment>
+    <Header/>
+    <TaskList info={info}/>
+    </React.Fragment>
   );
 }
 
