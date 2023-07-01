@@ -20,7 +20,7 @@ const handleDelete=((id)=>{
     <button className='trigger' onClick={()=>setShow(!show)}>Toggle</button>
    <ul>
    {show &&  tasks.map((task)=>(
-    <li key={task.id}> <span>{task.id} - {task.name}</span>
+    <li key={task.id} className={task.completed ? "completed" : "incomplete"}> <span>{task.id} - {task.name}</span>
     <button onClick={()=>handleDelete(task.id)} className='delete'>Delete</button>
     </li>
    ))}
