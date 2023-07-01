@@ -8,6 +8,7 @@ function App() {
   {id:2,name:"PM",completed:false},
   {id:3,name:"Pritam",completed:true}
 ])
+const [show,setShow]=useState(true)
 const handleDelete=((id)=>{
   setTasks(tasks.filter(task=>
     task.id!==id
@@ -16,12 +17,14 @@ const handleDelete=((id)=>{
   return (
     <div className="App">
     <h1>Task List</h1>
+    <button className='trigger' onClick={()=>setShow(!show)}>Toggle</button>
    <ul>
-   {tasks.map((task)=>(
+   {show &&  tasks.map((task)=>(
     <li key={task.id}> <span>{task.id} - {task.name}</span>
     <button onClick={()=>handleDelete(task.id)} className='delete'>Delete</button>
     </li>
    ))}
+  
    </ul>
     </div>
   );
