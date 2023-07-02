@@ -2,14 +2,16 @@ import Header from './Component/Header';
 import './App.css';
 import TaskList from './Component/TaskList';
 import React from 'react';
+import Footer from './Component/Footer';
 
 function App() {
  const info="Random"
   return (
-  <React.Fragment>
+  <div className='App'>
     <Header/>
     <TaskList info={info}/>
-    </React.Fragment>
+    <Footer/>
+    </div>
   );
 }
 
